@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+  <body class="d-flex flex-column min-vh-100 bgimg">
+    <nav class="navbar fixed-top border-bottom border-dark border-3 bg-dark">
+      <div class="container-fluid ">
+        <a class="brand">FootKart</a>
+        <form class="d-flex" role="search">
+          <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+          <button class="btn  " type="submit"><iconify-icon class="fs-3" icon="ic:round-search"></iconify-icon></button>
+        </form>
+        <div class=" d-flex  mx-3">
+          <div class="mx-3"><a class="fs-5 fw-bold text-light text-decoration-none" href="/logout "> Logout </a></div>
+          <!-- <div class="mx-3"><a class="fs-5 fw-bold text-dark text-decoration-none" href="/login "> Sign In /</a> <a class="fs-5 fw-bold  text-dark text-decoration-none" href="/register"> Sign Up </a></div> -->
+          <div class="mx-3 fs-5 fw-bold text-light">SHOP</div>
+          <div class="mx-3 fs-5 fw-bold text-light">ABOUT</div>
+          <iconify-icon class="fs-3 bg-light" icon="ic:round-shopping-cart"></iconify-icon>
+        </div>
+      </div>
+    </nav>
+    <div class="recommendations">
+      <button class="rec2 fs-4 ">Boots</button>
+      <button class="rec2 fs-4">Shoes</button>
+      <button class="rec2 fs-4 ">Sandals</button>
+      <button class="rec2 fs-4 ">Slipper</button>
+      <button class="rec2 fs-4">Women Wear</button>
+      <button class="rec2 fs-4 ">Mens Wear</button>
+    </div>
+
+    <div class="container">
+      <h1 class="mt-3">ALL PRODUCTS</h1>
+      <br>
+
+      <div class="row">
+        <% if(products.length>0){ %>
+          <% products.forEach(item=>{ %>
+            <div class="col-md-3">
+              <div class="shoe-card">
+
+                <div class="shoe-card-head">
+                  <img class="shoe-card-img-top" src="/<%= item.images[0] %>" alt="">
+                  <div class=" surprise-bubble"><span class="shoe-card-heart">
+                      <i class="fas fa-heart"></i>
+                    </span><a href="#"> <span>More</span></a>
+                  </div>
+                </div>
+                <div class="shoe-card-body">
+                  <h4 class="shoe-card-title lh-base">
+                    <%= item.productname %>
+                  </h4>
+                  <p class="shoe-card-para"></p>
+                  <p class="shoe-card-para"><span class="shoe-card-price fs-5"> ₹ <%=item.price %>&ensp;</span><span
+                      class="shoe-card-crossed"></span><span class="shoe-card-off text-primary">&ensp;(60% OFF)</span>
+                  </p>
+                  <div class="row">
+                    <div class="col-md-6 card-button"><a href="">
+                        <div class="card-button-inner bag-button">Add to Cart</div>
+                      </a></div>
+                    <div class="col-md-6 card-button"><a href="">
+                        <div class="card-button-inner wish-button">Whishlist</div>
+                      </a></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <% }) %>
+              <% } %>
+      </div>
+
+    </div>
+
+
+
+    <nav class="bottom-land navbar mt-auto">
+      <div class="container">
+        <div class="row">
+          <div class=" col-md-12 logo d-flex align-items-center my-2">
+            <h6 class="brand text-dark">FootKart</h6>
+          </div>
+          <div class="col-md-3 ">
+            <h6 class="border-bottom border-2 border-dark">Company</h6>
+            <a class=" ab my-2 " href="#">About Us</a><br>
+            <a class=" ab my-2" href="#">Contact Us</a><br>
+            <a class=" ab my-2" href="#">Product Warranty</a><br>
+          </div>
+          <div class="col-md-3">
+            <h6 class="border-bottom border-2 border-dark">Connect With Us</h6>
+            <a class="ab my-1" href="#">Instagram</a><br>
+            <a class="ab my-2" href="https://www.facebook.com/">Facebook</a><br>
+            <a class="ab my-2" href="#">Twitter</a><br>
+          </div>
+          <div class="col-md-3">
+            <h6 class="border-bottom border-2 border-dark">EMAIL US</h6><br>
+            <a class="ab my-2" href="#">footkart@shop.com</a>
+          </div>
+          <div class="col-md-3">
+            <h6 class="border-bottom border-2 border-dark">POLICY</h6>
+            <a class="ab my-1" href="#">Terms</a><br>
+            <a class="ab my-2" href="#">Return policies</a><br>
+          </div>
+
+        </div>
+      </div>
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold my-2 mx-3" href="#">Copyright<iconify-icon class="fs-5"
+            icon="mingcute:copyright-fill"></iconify-icon>2023</a>
+      </div>
+    </nav>
+
+
+  </body>
+
+</html>
